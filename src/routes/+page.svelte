@@ -23,5 +23,5 @@
 
 </script>
 
-<div bind:this="{chart}" class="flex flex-col justify-center h-full p-8 gap-8 -mt-8">
+<div bind:this="{chart}" class="flex flex-col justify-center h-full p-8 gap-8">
 </div>
