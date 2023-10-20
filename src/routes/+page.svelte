@@ -1,15 +1,27 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
+<script lang="ts">
+	import { NightVision } from "night-vision";
+	import data from "$lib/data-1.json";
+	import { onMount } from 'svelte';
 
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
-			<li><code class="code">/src/app.postcss</code> - app wide css</li>
-			<li>
-				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
-			</li>
-		</ul>
-	</div>
+	let chart:any
+
+	onMount (() => {
+		
+		chart.innerHTML = `
+		<h1 class="text-5xl mx-auto">Cylex Chart</h1>
+		<div id="chart-container"></div>
+		`;
+
+		const nchart = new NightVision("chart-container", {
+		data,
+		autoResize: true,
+		colors: { back: "#111113", grid: "#2e2f3055" }
+		});
+
+
+	})
+
+</script>
+
+<div bind:this="{chart}" class="flex flex-col justify-center h-full p-8 gap-8 -mt-8">
 </div>
